@@ -1,0 +1,366 @@
+@import './variables';
+
+.toplevel_page_htm-core-menu-dashboard {
+    img {
+        width: 20px;
+        margin-top: -3px;
+    }
+}
+
+$main-color: $color-main;
+$fade-color: lighten($main-color, 25%);
+$dark-color: darken($main-color, 10%);
+
+.ks-box {
+    position: relative;
+    margin: 20px 20px 20px 0;
+
+    .ks-head {
+        display: flex;
+        align-items: center;
+        background-color: $main-color;
+        border-radius: 20px 20px 0 0;
+        padding: 10px 20px;
+    }
+
+    .ks-icon {
+        position: relative;
+        height: 50px;
+        width: 50px;
+
+        path {
+            fill: #fff;
+        }
+    }
+
+    .ks-sub,
+    .ks-title {
+        font-size: 30px;
+        color: #fff;
+    }
+
+    .ks-title {
+        margin: 0 25px;
+    }
+
+    .ks-sub {
+        position: relative;
+
+        &::before {
+            content: '-';
+            position: absolute;
+            left: -18px;
+        }
+    }
+
+    .ks-content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        background-color: $fade-color;
+        padding: 20px;
+    }
+
+    .ks-footer {
+        background-color: $main-color;
+        height: 30px;
+        border-radius: 0 0 20px 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ks-setting-box {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background-color: $main-color;
+        box-shadow: 2px 5px 16px 1px rgba(0, 0, 0, 0.7);
+
+        .ks-name {
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 2px;
+            color: #fff;
+        }
+
+        .ks-input {
+            border: 0;
+            margin: 0;
+            border-radius: 0;
+            padding: 0 0 0 8px;
+
+            + .ks-name {
+                margin-top: 5px;
+            }
+
+            &[type=number] {
+                width: 60px;
+            }
+        }
+
+        .ks-desc {
+            font-size: 11px;
+            margin: 0 0 5px 5px;
+            line-height: 12px;
+            color: #ddd;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 5px 0 10px;
+
+            .spacer {
+                flex-grow: 2;
+            }
+
+            input {
+                width: max-content;
+            }
+        }
+
+        .ks-label {
+            color: #fff;
+        }
+
+        .ks-button {
+            @include transition;
+
+            border: 0;
+            background-color: #fff;
+            margin: 0;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            text-transform: uppercase;
+            outline: none;
+
+            &:hover {
+                background-color: #ddd;
+            }
+
+            &.doMe {
+                background-color: $color-gradient;
+                color: #fff;
+
+                &:hover {
+                    background-color: darken($color-gradient, 5%);
+                }
+            }
+        }
+    }
+
+    .ks-multi-input {
+        background-color: #fff;
+        padding: 3px;
+
+        .ks-input-box {
+            display: inline;
+            position: relative;
+            margin-right: 3px;
+        }
+
+        .ks-input {
+            background-color: $fade-color;
+        }
+
+        .ks-remove {
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+            width: 20px;
+            position: absolute;
+            right: 0;
+            margin: 3px;
+            height: 20px;
+        }
+    }
+}
+
+.ks-progress {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .ks-progress-number {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-weight: 600;
+        font-size: 17px;
+    }
+
+    .ks-progress-back {
+        @include transition;
+
+        background-color: $color-gradient;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0%;
+    }
+
+    .ks-progress-time {
+        color: #fff;
+        line-height: 30px;
+        font-size: 13px;
+        position: absolute;
+        right: 14px;
+    }
+}
+
+@media (max-width: 1700px) {
+    .ks-box {
+        .ks-content {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    .ks-box {
+        .ks-content {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .ks-box {
+        .ks-content {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.check-wrap {
+    .check-mark {
+        width: 40px;
+        height: 40px;
+        background-image: url(../assets/images/menu-checkbox.svg?v=6);
+        background-size: 20px 20px;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        cursor: pointer;
+
+        &::after {
+            @include transition;
+
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url(../assets/images/menu-check.svg?v=4);
+            background-size: 20px 20px;
+            background-position: 13px 7px;
+            background-repeat: no-repeat;
+            opacity: 0;
+        }
+    }
+
+    input {
+        display: none;
+
+        &:checked {
+            ~ .check-mark {
+                &::after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.ks-setting-list {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    margin-bottom: 10px;
+
+    .check-box {
+        position: relative;
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 0;
+        }
+
+        &:not(:last-of-type) {
+            &::after {
+                content: '';
+                position: absolute;
+                left: 2%;
+                right: 35%;
+                height: 1px;
+                background-color: rgba(#fff, 0.3);
+                bottom: 0;
+            }
+        }
+    }
+
+    label {
+        * {
+            margin: 0;
+        }
+    }
+
+    .ks-check-name {
+        font-weight: 600;
+        font-size: 17px;
+    }
+
+    .ks-which {
+        opacity: .6;
+        font-size: 13px;
+    }
+
+    .ks-help {
+        opacity: .6;
+    }
+}
+
+.ks-feed {
+    counter-reset: feed;
+    padding: 0 10px;
+    background-color: $color-main;
+    max-height: 84px;
+    position: relative;
+    overflow: hidden;
+
+    .ks-feed-text {
+        @include transition(300ms);
+
+        position: relative;
+    }
+
+    p {
+        margin: 0;
+        line-height: 1.1;
+        color: #fff;
+        padding: 7px 0 7px 25px;
+        position: relative;
+        opacity: 0.7;
+
+        &::before {
+            counter-increment: feed;
+            content: counter(feed) '.';
+            position: absolute;
+            left: -6px;
+            width: 25px;
+            text-align: right;
+            opacity: 0.4;
+        }
+    }
+}

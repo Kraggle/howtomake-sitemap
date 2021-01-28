@@ -1,0 +1,33 @@
+$color-main: #0da0c5;
+$color-gradient: #29c4a9;
+$color-text-link: #29c4a9;
+$color-text-light: #fff;
+$color-text-blue: #5896d3;
+$color-text-grey: #777;
+$color-text-fade: rgba($color-text-light, 0.6);
+$color-text-disabled: rgba($color-text-light, 0.2);
+$color-highlight: #f69552;
+$color-highlight-hover: darken($color-highlight, 15%);
+$color-title: #8c8c8c;
+$color-button: #29c4a9;
+
+$gallery-transition: 1.2s all cubic-bezier(0.4, 0, 0.2, 1);
+$transition: 600ms all cubic-bezier(0.4, 0, 0.2, 1);
+
+@mixin transition($time: 600ms, $which: all) {
+    transition: $time $which cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assets/fonts/Mulish-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 200 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assets/fonts/Mulish-Italic-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 200 900;
+    font-style: italic;
+}
